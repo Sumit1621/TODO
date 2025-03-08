@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from django.http import HttpResponseRedirect
 # from django.urls import reverse
@@ -13,3 +13,8 @@ def home(request):
         TO = Todo(title=title, desc=desc)
         TO.save()
     return render(request, 'home.html', d)
+
+def delete_todo(request, pk):
+    todo = get_object_or_404(Todo, pk=pk)
+    todo.delete()
+    return redirect('home')
