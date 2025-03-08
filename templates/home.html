@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,11 +30,11 @@
           </tr>
         </thead>
         <tbody>
-            {% for todo in all_todos %}
+            {% for Todo in all_todos %}
             <tr>
-              <th>{{forloop.counter}}</th>
-              <td>{{todo.title}}</td>
-              <td>{{todo.desc}}</td>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{Todo.title}}</td>
+              <td>{{Todo.desc}}</td>
               <td>
                 <a href="{% url 'update' todo.pk %}"><button type="button" class="btn btn-primary">Update</button></a> 
                 <a href="{% url 'delete' todo.pk %}"><button type="button" class="btn btn-danger">Delete</button></a>
@@ -45,7 +45,7 @@
         </table>
         {% else %}
         <h1>no Todos</h1>
-      {% endif %}
+      {% endif %}
     
 </body>
 </html>

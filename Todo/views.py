@@ -27,8 +27,7 @@ def update(request, pk):
         return HttpResponseRedirect(reverse('home'))
     return render(request,'update.html',d)
 
-
 def delete_todo(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)
+    todo = Todo.objects.get(pk=pk)
     todo.delete()
-    return redirect('home')
+    return HttpResponseRedirect(reverse('home'))
